@@ -1,0 +1,4 @@
+source 'https://supermarket.chef.io'
+
+
+cookbook 'cookbook', git: 'https://github.com/e-harris/AMI_project_cookbook/tree/master/cookbook'

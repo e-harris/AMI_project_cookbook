@@ -32,13 +32,22 @@
     },
     "instance_type": "t2.micro",
     "ssh_username": "ubuntu",
-    "ami_name": "elliot-eng54-project-{{timestamp}}"
+    "ami_name": "elliot-eng54-project-production{{timestamp}}"
   }],
   "provisioners": [
     {
       "type": "chef-solo",
-      "cookbook_paths": ["."],
+      "cookbook_paths": ["./cookbook"],
       "run_list": ["cookbook::default"]
+    },
+    {
+      "type": "file",
+      "source": "app/",
+      "destination": "/home/ubuntu/app"
+    },
+    {
+      "type": "shell",
+      "execute": "echo >> 'It is done'"
     }
   ]
 }
